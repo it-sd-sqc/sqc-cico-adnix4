@@ -77,3 +77,12 @@ Use `./build.sh` to build CiCo and `./run.sh` to run it if using the command lin
 
 ## Expected Results
 * Should only allow 8 0s to be entered and display "Developer Checked In" after pushing update.
+
+# Module 5: Ticket 501 OK button
+
+1. Build and run CiCo
+2. Enter 000000000
+3. Press OK button
+
+## Expected Results
+After pressing OK button program will return to Scan Card page.
