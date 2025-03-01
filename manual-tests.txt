@@ -61,4 +61,19 @@ Use `./build.sh` to build CiCo and `./run.sh` to run it if using the command lin
 ## Expected results
 * Should display "Developer" for the user name.
 
+# Module 4: Ticket 401 accept only numeric input.
 
+## Test steps
+1. Build and run CiCo
+2. Enter abc
+
+## Expected Results
+* Should only display numeric characters.
+
+# Module 4: Ticket 402 Limit digits entered
+
+1. Build and run CiCo
+2. Enter 000000000
+
+## Expected Results
+* Should only allow 8 0s to be entered and display "Developer Checked In" after pushing update.
