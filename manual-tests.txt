@@ -86,3 +86,11 @@ Use `./build.sh` to build CiCo and `./run.sh` to run it if using the command lin
 
 ## Expected Results
 After pressing OK button program will return to Scan Card page.
+
+# Module 5: Ticket 502 Program shutdown
+
+1. Build and run CiCo
+2. Close window
+
+## Expected Results
+The window should close and a clean shutdown should be performed
