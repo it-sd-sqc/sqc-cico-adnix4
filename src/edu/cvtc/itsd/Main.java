@@ -36,7 +36,10 @@ public class Main {
   // InputFilter manages user input to the card number field.
   private static class InputFilter extends DocumentFilter {
     private static final int MAX_LENGTH = 8;
-
+    
+    private void beep() {
+      Toolkit.getDefaultToolkit().beep();
+    }
     @Override
     public void insertString(FilterBypass fb, int offset, String stringToAdd, AttributeSet attr)
         throws BadLocationException
@@ -48,9 +51,8 @@ public class Main {
           }
         }
       }
-      else {
-        Toolkit.getDefaultToolkit().beep();
-      }
+      else beep();
+      
     }
 
     @Override
@@ -61,13 +63,12 @@ public class Main {
         if (stringToAdd.matches("^[0-9]*$")) {
           if(offset < MAX_LENGTH) {
             super.replace(fb, offset, lengthToDelete, stringToAdd, attr);
-          }
-        }
+          }else beep();
+        }else beep();
       }
-      else {
-        Toolkit.getDefaultToolkit().beep();
+      else beep();
       }
-    }
+    
   }
 
   // Lookup the card information after button press ///////////////////////////
@@ -296,6 +297,12 @@ public class Main {
     labelState.setAlignmentX(JComponent.CENTER_ALIGNMENT);
     labelState.setForeground(Color.magenta);
     panelStatus.add(labelState);
+    
+    buttonAcknowledge = new JButton("OK");
+    buttonAcknowledge.addActionListener(handler);
+    buttonAcknowledge.setAlignmentX(JComponent.CENTER_ALIGNMENT);
+    buttonAcknowledge.setForeground(Color.green);
+    panelStatus.add(buttonAcknowledge);
 
     panelStatus.add(Box.createVerticalGlue());
 
