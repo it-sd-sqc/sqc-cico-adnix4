@@ -59,16 +59,11 @@ public class Main {
     public void replace(FilterBypass fb, int offset, int lengthToDelete, String stringToAdd, AttributeSet attr)
         throws BadLocationException
     {
-      if (fb.getDocument() != null) {
-        if (stringToAdd.matches("^[0-9]*$")) {
-          if(offset < MAX_LENGTH) {
-            super.replace(fb, offset, lengthToDelete, stringToAdd, attr);
-          }else beep();
-        }else beep();
+      if (fb.getDocument() == null || offset >= MAX_LENGTH || !stringToAdd.matches("^[0-9]*$")) {
+        beep();
       }
-      else beep();
+      else super.replace(fb, offset, lengthToDelete, stringToAdd, attr);
       }
-    
   }
 
   // Lookup the card information after button press ///////////////////////////
