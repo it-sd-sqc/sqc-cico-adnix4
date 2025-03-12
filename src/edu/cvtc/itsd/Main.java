@@ -38,11 +38,15 @@ public class Main {
   // InputFilter manages user input to the card number field.
   private static class InputFilter extends DocumentFilter {
     private static final int MAX_LENGTH = 8;
-
+    
+    private void beep() {
+      Toolkit.getDefaultToolkit().beep();
+    }
     @Override
     public void insertString(FilterBypass fb, int offset, String stringToAdd, AttributeSet attr)
         throws BadLocationException
     {
+
       if (stringToAdd == null) { // Added code
         return;
       }
@@ -56,12 +60,14 @@ public class Main {
       else {
         Toolkit.getDefaultToolkit().beep();
       }
+      
     }
 
     @Override
     public void replace(FilterBypass fb, int offset, int lengthToDelete, String stringToAdd, AttributeSet attr)
         throws BadLocationException
     {
+
        if (stringToAdd == null) { // Added code
         return;
       }
@@ -71,11 +77,11 @@ public class Main {
 
       if (newText.length() <= MAX_LENGTH && newText.matches("\\d*")){ //if (fb.getDocument() != null) {
         super.replace(fb, offset, lengthToDelete, stringToAdd, attr);
+
       }
-      else {
-        Toolkit.getDefaultToolkit().beep();
+      else beep();
       }
-    }
+    
   }
 
   private static class CardNumberListener implements DocumentListener { //added code
@@ -271,6 +277,7 @@ public class Main {
 
     // Create our GUI.
     JFrame frame = new JFrame();
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.setMinimumSize(new Dimension(320, 240));
     frame.setPreferredSize(new Dimension(640, 480));
     frame.setMaximumSize(new Dimension(640, 480));
@@ -333,6 +340,12 @@ public class Main {
     labelState.setAlignmentX(JComponent.CENTER_ALIGNMENT);
     labelState.setForeground(Color.magenta);
     panelStatus.add(labelState);
+    
+    buttonAcknowledge = new JButton("OK");
+    buttonAcknowledge.addActionListener(handler);
+    buttonAcknowledge.setAlignmentX(JComponent.CENTER_ALIGNMENT);
+    buttonAcknowledge.setForeground(Color.green);
+    panelStatus.add(buttonAcknowledge);
 
     panelStatus.add(Box.createVerticalGlue());
 

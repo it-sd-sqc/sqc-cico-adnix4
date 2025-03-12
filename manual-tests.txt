@@ -61,6 +61,41 @@ Use `./build.sh` to build CiCo and `./run.sh` to run it if using the command lin
 ## Expected results
 * Should display "Developer" for the user name.
 
+# Module 4: Ticket 401 accept only numeric input.
+
+
+## Test steps
+1. Build and run CiCo
+2. Enter abc
+
+## Expected Results
+* Should only display numeric characters.
+
+# Module 4: Ticket 402 Limit digits entered
+
+1. Build and run CiCo
+2. Enter 000000000
+
+## Expected Results
+* Should only allow 8 0s to be entered and display "Developer Checked In" after pushing update.
+
+# Module 5: Ticket 501 OK button
+
+1. Build and run CiCo
+2. Enter 000000000
+3. Press OK button
+
+## Expected Results
+After pressing OK button program will return to Scan Card page.
+
+# Module 5: Ticket 502 Program shutdown
+
+1. Build and run CiCo
+2. Close window
+
+## Expected Results
+The window should close and a clean shutdown should be performed
+
 # Module 6: ticket 601
 
 ## Test steps
@@ -69,4 +104,3 @@ Use `./build.sh` to build CiCo and `./run.sh` to run it if using the command lin
 
 ## Expected results
 * Should display "Developer" for the user name.
-
