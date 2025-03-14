@@ -38,10 +38,10 @@ public class Main {
   // InputFilter manages user input to the card number field.
   private static class InputFilter extends DocumentFilter {
     private static final int MAX_LENGTH = 8;
-    
     private void beep() {
       Toolkit.getDefaultToolkit().beep();
     }
+    
     @Override
     public void insertString(FilterBypass fb, int offset, String stringToAdd, AttributeSet attr)
         throws BadLocationException
@@ -60,13 +60,13 @@ public class Main {
       else {
         Toolkit.getDefaultToolkit().beep();
       }
-      
     }
 
     @Override
     public void replace(FilterBypass fb, int offset, int lengthToDelete, String stringToAdd, AttributeSet attr)
         throws BadLocationException
     {
+
 
        if (stringToAdd == null) { // Added code
         return;
@@ -77,11 +77,17 @@ public class Main {
 
       if (newText.length() <= MAX_LENGTH && newText.matches("\\d*")){ //if (fb.getDocument() != null) {
         super.replace(fb, offset, lengthToDelete, stringToAdd, attr);
-
+      
       }
       else beep();
-      }
-    
+    }
+
+//      if (fb.getDocument() == null || offset >= MAX_LENGTH || !stringToAdd.matches("^[0-9]*$")) {
+//        beep();
+//      }
+//      else super.replace(fb, offset, lengthToDelete, stringToAdd, attr);
+//      }
+
   }
 
   private static class CardNumberListener implements DocumentListener { //added code
