@@ -63,6 +63,7 @@ Use `./build.sh` to build CiCo and `./run.sh` to run it if using the command lin
 
 # Module 4: Ticket 401 accept only numeric input.
 
+
 ## Test steps
 1. Build and run CiCo
 2. Enter abc
@@ -94,3 +95,12 @@ After pressing OK button program will return to Scan Card page.
 
 ## Expected Results
 The window should close and a clean shutdown should be performed
+
+# Module 6: ticket 601
+
+## Test steps
+1. Build and run CiCo.
+2. Enter 00000000 into the field.
+
+## Expected results
+* Should display "Developer" for the user name.
